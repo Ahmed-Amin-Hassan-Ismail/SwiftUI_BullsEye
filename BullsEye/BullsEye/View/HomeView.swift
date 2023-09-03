@@ -8,19 +8,61 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    // MARK: - Properties
+    
+    @State private var guess: RGBModel
+    @State private var game = GameModel()
+    @State private var showScore: Bool = false
+    
+    
+    // MARK: - Init
+    
+    init(guess: RGBModel) {
+        self.guess = guess
+    }
+    
+    // MARK: - Body
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+          ColorCircle(rgb: game.target)
+            ZStack {
+                !showScore ? Text("R: ??? G: ??? B: ???") : Text(game.target.intString())
+            }
+            .padding()
+            
+            ColorCircle(rgb: guess)
+            Text(guess.intString())
+                .padding()
+            
+            
+            ColorSlider(value: $guess.red, trackColor: .red)
+            ColorSlider(value: $guess.green, trackColor: .green)
+            ColorSlider(value: $guess.blue, trackColor: .blue)
+            
+            Button {
+                self.showScore.toggle()
+                self.game.check(guess: guess)
+                
+            } label: {
+                Text("Hit Me!")
+            }
         }
-        .padding()
+        .alert(isPresented: $showScore) {
+            Alert(
+                title: Text("Your Score"),
+                message: Text(String(game.scoreRound)),
+                dismissButton: .default(Text("Ok")) {
+                    game.startNewRound()
+                    guess = RGBModel()
+                })
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(guess: RGBModel(red: 0.8, green: 0.3, blue: 0.7))
     }
 }

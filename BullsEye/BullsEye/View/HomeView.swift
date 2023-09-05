@@ -25,38 +25,47 @@ struct HomeView: View {
     // MARK: - Body
     
     var body: some View {
-        VStack {
-          ColorCircle(rgb: game.target)
-            ZStack {
-                !showScore ? Text("R: ??? G: ??? B: ???") : Text(game.target.intString())
-            }
-            .padding()
+        ZStack {
             
-            ColorCircle(rgb: guess)
-            Text(guess.intString())
-                .padding()
+            Color.element
+                .ignoresSafeArea(.all)
             
-            
-            ColorSlider(value: $guess.red, trackColor: .red)
-            ColorSlider(value: $guess.green, trackColor: .green)
-            ColorSlider(value: $guess.blue, trackColor: .blue)
-            
-            Button {
-                self.showScore.toggle()
-                self.game.check(guess: guess)
+            VStack {
                 
-            } label: {
-                Text("Hit Me!")
+                ColorCircle(rgb: game.target, size: 200)
+                ZStack {
+                    !showScore ? Text("R: ??? G: ??? B: ???") : Text(game.target.intString())
+                }
+                .padding()
+                
+                ColorCircle(rgb: guess, size: 200)
+                Text(guess.intString())
+                    .padding()
+                
+                
+                ColorSlider(value: $guess.red, trackColor: .red)
+                ColorSlider(value: $guess.green, trackColor: .green)
+                ColorSlider(value: $guess.blue, trackColor: .blue)
+                
+                Button {
+                    self.showScore.toggle()
+                    self.game.check(guess: guess)
+                    
+                } label: {
+                    Text("Hit Me!")
+                }
+                .buttonStyle(NeuButtonStyle(width: 327, height: 48))
+                
             }
-        }
-        .alert(isPresented: $showScore) {
-            Alert(
-                title: Text("Your Score"),
-                message: Text(String(game.scoreRound)),
-                dismissButton: .default(Text("Ok")) {
-                    game.startNewRound()
-                    guess = RGBModel()
-                })
+            .alert(isPresented: $showScore) {
+                Alert(
+                    title: Text("Your Score"),
+                    message: Text(String(game.scoreRound)),
+                    dismissButton: .default(Text("Ok")) {
+                        game.startNewRound()
+                        guess = RGBModel()
+                    })
+            }
         }
     }
 }

@@ -16,6 +16,8 @@
 		AC6A47A02AA519A6006CA6A4 /* Color + EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6A479F2AA519A6006CA6A4 /* Color + EXT.swift */; };
 		AC6A47A22AA5222D006CA6A4 /* ColorCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6A47A12AA5222D006CA6A4 /* ColorCircle.swift */; };
 		AC6A47A42AA522D3006CA6A4 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6A47A32AA522D3006CA6A4 /* ColorSlider.swift */; };
+		ACACC1CE2AA7938800E54077 /* View + EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACC1CD2AA7938800E54077 /* View + EXT.swift */; };
+		ACACC1D12AA7976100E54077 /* NeuButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACC1D02AA7976100E54077 /* NeuButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		AC6A479F2AA519A6006CA6A4 /* Color + EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + EXT.swift"; sourceTree = "<group>"; };
 		AC6A47A12AA5222D006CA6A4 /* ColorCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCircle.swift; sourceTree = "<group>"; };
 		AC6A47A32AA522D3006CA6A4 /* ColorSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
+		ACACC1CD2AA7938800E54077 /* View + EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + EXT.swift"; sourceTree = "<group>"; };
+		ACACC1D02AA7976100E54077 /* NeuButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 			children = (
 				AC6A478A2AA51759006CA6A4 /* BullsEyeApp.swift */,
 				AC6A479E2AA5199F006CA6A4 /* Extension */,
+				ACACC1CF2AA7975400E54077 /* Components */,
 				AC6A47982AA5184C006CA6A4 /* Model */,
 				AC6A47992AA51855006CA6A4 /* View */,
 				AC6A478E2AA5175A006CA6A4 /* Assets.xcassets */,
@@ -102,8 +107,17 @@
 			isa = PBXGroup;
 			children = (
 				AC6A479F2AA519A6006CA6A4 /* Color + EXT.swift */,
+				ACACC1CD2AA7938800E54077 /* View + EXT.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		ACACC1CF2AA7975400E54077 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				ACACC1D02AA7976100E54077 /* NeuButtonStyle.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +192,10 @@
 			files = (
 				AC6A47A42AA522D3006CA6A4 /* ColorSlider.swift in Sources */,
 				AC6A478D2AA51759006CA6A4 /* HomeView.swift in Sources */,
+				ACACC1CE2AA7938800E54077 /* View + EXT.swift in Sources */,
 				AC6A479D2AA51956006CA6A4 /* GameModel.swift in Sources */,
 				AC6A478B2AA51759006CA6A4 /* BullsEyeApp.swift in Sources */,
+				ACACC1D12AA7976100E54077 /* NeuButtonStyle.swift in Sources */,
 				AC6A47A02AA519A6006CA6A4 /* Color + EXT.swift in Sources */,
 				AC6A479B2AA51877006CA6A4 /* RGBModel.swift in Sources */,
 				AC6A47A22AA5222D006CA6A4 /* ColorCircle.swift in Sources */,

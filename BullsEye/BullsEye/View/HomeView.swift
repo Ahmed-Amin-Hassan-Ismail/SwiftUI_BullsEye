@@ -15,6 +15,12 @@ struct HomeView: View {
     @State private var game = GameModel()
     @State private var showScore: Bool = false
     
+    /// fixed constant numbers
+    private let circleSize: CGFloat = 0.275
+    private let labelHeight: CGFloat = 0.06
+    private let labelWidth: CGFloat = 0.53
+    private let buttonWidth: CGFloat = 0.87
+    
     
     // MARK: - Init
     
@@ -25,46 +31,60 @@ struct HomeView: View {
     // MARK: - Body
     
     var body: some View {
-        ZStack {
-            
-            Color.element
-                .ignoresSafeArea(.all)
-            
-            VStack {
+        GeometryReader { proxy in
+            ZStack {
                 
-                ColorCircle(rgb: game.target, size: 200)
-                ZStack {
-                    !showScore ? Text("R: ??? G: ??? B: ???") : Text(game.target.intString())
-                }
-                .padding()
+                Color.element
+                    .ignoresSafeArea(.all)
                 
-                ColorCircle(rgb: guess, size: 200)
-                Text(guess.intString())
-                    .padding()
-                
-                
-                ColorSlider(value: $guess.red, trackColor: .red)
-                ColorSlider(value: $guess.green, trackColor: .green)
-                ColorSlider(value: $guess.blue, trackColor: .blue)
-                
-                Button {
-                    self.showScore.toggle()
-                    self.game.check(guess: guess)
+                VStack {
                     
-                } label: {
-                    Text("Hit Me!")
+                    ColorCircle(rgb: game.target,
+                                size: proxy.size.height * circleSize)
+                    ZStack {
+                        !showScore ?
+                        BevelText(
+                            text: "R: ??? G: ??? B: ???",
+                            width: proxy.size.width * labelWidth,
+                            height: proxy.size.height * labelHeight) :
+                        BevelText(
+                            text: game.target.intString(),
+                            width: proxy.size.width * labelWidth,
+                            height: proxy.size.height * labelHeight)
+                    }
+                    .padding()
+                    
+                    ColorCircle(rgb: guess, size: 200)
+                    BevelText(text: guess.intString(),
+                              width: proxy.size.width * labelWidth,
+                              height: proxy.size.height * labelHeight)
+                        .padding()
+                    
+                    
+                    ColorSlider(value: $guess.red, trackColor: .red)
+                    ColorSlider(value: $guess.green, trackColor: .green)
+                    ColorSlider(value: $guess.blue, trackColor: .blue)
+                    
+                    Button {
+                        self.showScore.toggle()
+                        self.game.check(guess: guess)
+                        
+                    } label: {
+                        Text("Hit Me!")
+                    }
+                    .buttonStyle(NeuButtonStyle(width: proxy.size.width * buttonWidth, height: proxy.size.height * labelHeight))
+                    
                 }
-                .buttonStyle(NeuButtonStyle(width: 327, height: 48))
-                
-            }
-            .alert(isPresented: $showScore) {
-                Alert(
-                    title: Text("Your Score"),
-                    message: Text(String(game.scoreRound)),
-                    dismissButton: .default(Text("Ok")) {
-                        game.startNewRound()
-                        guess = RGBModel()
-                    })
+                .font(.system(.headline))
+                .alert(isPresented: $showScore) {
+                    Alert(
+                        title: Text("Your Score"),
+                        message: Text(String(game.scoreRound)),
+                        dismissButton: .default(Text("Ok")) {
+                            game.startNewRound()
+                            guess = RGBModel()
+                        })
+                }
             }
         }
     }

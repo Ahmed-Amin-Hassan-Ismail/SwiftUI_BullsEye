@@ -18,6 +18,7 @@
 		AC6A47A42AA522D3006CA6A4 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6A47A32AA522D3006CA6A4 /* ColorSlider.swift */; };
 		ACACC1CE2AA7938800E54077 /* View + EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACC1CD2AA7938800E54077 /* View + EXT.swift */; };
 		ACACC1D12AA7976100E54077 /* NeuButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACC1D02AA7976100E54077 /* NeuButtonStyle.swift */; };
+		ACACC1D52AA7ABD200E54077 /* BevelText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACACC1D42AA7ABD200E54077 /* BevelText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		AC6A47A32AA522D3006CA6A4 /* ColorSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
 		ACACC1CD2AA7938800E54077 /* View + EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + EXT.swift"; sourceTree = "<group>"; };
 		ACACC1D02AA7976100E54077 /* NeuButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuButtonStyle.swift; sourceTree = "<group>"; };
+		ACACC1D42AA7ABD200E54077 /* BevelText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BevelText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				ACACC1D02AA7976100E54077 /* NeuButtonStyle.swift */,
+				ACACC1D42AA7ABD200E54077 /* BevelText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				AC6A47A42AA522D3006CA6A4 /* ColorSlider.swift in Sources */,
 				AC6A478D2AA51759006CA6A4 /* HomeView.swift in Sources */,
 				ACACC1CE2AA7938800E54077 /* View + EXT.swift in Sources */,
+				ACACC1D52AA7ABD200E54077 /* BevelText.swift in Sources */,
 				AC6A479D2AA51956006CA6A4 /* GameModel.swift in Sources */,
 				AC6A478B2AA51759006CA6A4 /* BullsEyeApp.swift in Sources */,
 				ACACC1D12AA7976100E54077 /* NeuButtonStyle.swift in Sources */,
